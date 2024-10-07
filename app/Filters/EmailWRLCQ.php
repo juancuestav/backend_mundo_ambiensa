@@ -17,9 +17,9 @@ class EmailWRLCQ extends BaseClause
      */
     public function apply($query): Builder
     {
-        $valor = $this->values['like'];
+        $valor = strtolower($this->values['like']);
         $operador = 'like';
 
-        return $query->where('email', $operador, '%' . $valor . '%');
+        return $query->whereRaw('LOWER(email) ' . $operador . ' ?', ['%' . $valor . '%']);
     }
 }

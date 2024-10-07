@@ -17,9 +17,10 @@ class ApellidosWRLCQ extends BaseClause
      */
     public function apply($query): Builder
     {
-        $valor = $this->values['like'];
+        $valor = strtolower($this->values['like']); // Convertir el valor a minúsculas
         $operador = 'like';
 
-        return $query->where('apellidos', $operador, '%' . $valor . '%');
+        // Aplicar la función LOWER al campo 'apellidos'
+        return $query->whereRaw('LOWER(apellidos) ' . $operador . ' ?', ['%' . $valor . '%']);
     }
 }

@@ -17,9 +17,9 @@ class DireccionWRLCQ extends BaseClause
      */
     public function apply($query): Builder
     {
-        $valor = $this->values['like'];
+        $valor = strtolower($this->values['like']);
         $operador = 'like';
 
-        return $query->where('direccion', $operador, '%' . $valor . '%');
+        return $query->whereRaw('LOWER(direccion) ' . $operador . ' ?', ['%' . $valor . '%']);
     }
 }

@@ -17,9 +17,10 @@ class NombresWRLCQ extends BaseClause
      */
     public function apply($query): Builder
     {
-        $valor = $this->values['like'];
+        $valor = strtolower($this->values['like']); 
         $operador = 'like';
 
-        return $query->where('nombres', $operador, '%' . $valor . '%');
+        // Aplicar la función LOWER al campo 'nombres'
+        return $query->whereRaw('LOWER(nombres) ' . $operador . ' ?', ['%' . $valor . '%']);
     }
 }
