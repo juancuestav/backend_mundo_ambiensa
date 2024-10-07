@@ -24,12 +24,12 @@ class ClienteRequest extends FormRequest
         return [
             'nombres' => 'required|string|max:255',
             'apellidos' => 'nullable|string|max:255',
-            'email' => 'required|email|unique:clientes,email,' . $this->route('cliente'),
+            'email' => 'required|email',
             'telefono' => 'nullable|string|max:15',
             'direccion' => 'nullable|string',
             'ciudad' => 'nullable|string|max:100',
             'fecha_nacimiento' => 'nullable|date',
-            'identificacion' => 'nullable|string|max:20|unique:clientes,numero_documento,' . $this->route('cliente'),
+            'identificacion' => 'nullable|string|max:20',
             'activo' => 'boolean',
         ];
     }

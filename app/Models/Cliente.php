@@ -3,8 +3,12 @@
 namespace App\Models;
 
 use App\Filters\ApellidosWRLC;
+use App\Filters\DireccionWRLC;
+use App\Filters\EmailWRLC;
+use App\Filters\FechaNacimientoWRLC;
 use App\Filters\IdentificacionWRLC;
 use App\Filters\NombresWRLC;
+use App\Filters\TelefonoWRLC;
 use eloquentFilter\QueryFilter\ModelFilters\Filterable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
